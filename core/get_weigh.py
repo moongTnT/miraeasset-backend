@@ -31,10 +31,15 @@ def get_cap_weigh(*args, **kwargs):
     # 유동시가총액 산출
     quartely_child_cap = quartely_child_prices.copy()
 
+    print(quartely_child_cap.head())
+
     for tkr in quartely_child_cap.columns:
 
-        float_shares = float_shares_df[float_shares_df['child_stk_tkr']==tkr.upper()]['float_shares'].values[0]
-
+        try:
+            float_shares = float_shares_df[float_shares_df['child_stk_tkr']==tkr.upper()]['float_shares'].values[0]
+        except:
+            continue
+        
         quartely_child_cap[tkr] = quartely_child_cap[tkr.lower()] * float_shares
         
     # 최종 비중 산출

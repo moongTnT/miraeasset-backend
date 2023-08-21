@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 dummy_request_body={
     "rebalancePeriod": "3M",
-    "rateMethod": "manual",
+    "rateMethod": "동일가중",
     "myEtfName": "김밍두기요오",
     "myEtfPdf":[
         {"child_stk_tkr": "COIN", "ratio": 0.7},
