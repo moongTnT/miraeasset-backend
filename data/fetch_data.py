@@ -55,6 +55,18 @@ def fetch_theme_info(*args, **kwargs):
     return fetch_data_from_db(query=sql)
 
 
+def fetch_index_info(*args, **kwargs):
+    
+    etf_tkr = kwargs.pop("etf_tkr")
+    
+    sql = f"""
+    SELECT upper_bound FROM os_index_info 
+        WHERE etf_tkr='{etf_tkr}'
+    """
+    
+    return fetch_data_from_db(query=sql)
+
+
 def fetch_pdf_info(*args, **kwargs):
     
     etf_tkr = kwargs.pop("etf_tkr")

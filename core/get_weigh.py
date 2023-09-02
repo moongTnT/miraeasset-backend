@@ -31,7 +31,7 @@ def get_cap_weigh(*args, **kwargs):
     # 유동시가총액 산출
     quartely_child_cap = quartely_child_prices.copy()
 
-    print(quartely_child_cap.head())
+    # print(quartely_child_cap.head())
 
     for tkr in quartely_child_cap.columns:
 

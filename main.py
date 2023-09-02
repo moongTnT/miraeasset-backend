@@ -9,7 +9,7 @@ import uvicorn
 
 from models import StrategyModel
 
-from data.fetch_data import fetch_theme_info
+from data.fetch_data import fetch_theme_info, fetch_index_info
 from data.get_data import get_pdf_df, get_prices_df
 
 from core.get_weigh import get_cap_weigh, get_bdd_cap_weigh
@@ -42,9 +42,12 @@ def get_pdf_info(etf_tkr: str = "BKCH"):
     mkw_weigh = get_cap_weigh(child_prices=child_prices,
                               pdf_df=pdf_df)
     
+    upper_bound = fetch_index_info(etf_tkr=etf_tkr)
+    
+    
     bdd_mkw_weigh = get_bdd_cap_weigh(child_prices=child_prices,
                                       pdf_df=pdf_df,
-                                      upper_bound=0.03)
+                                      upper_bound=upper_bound[0]['upper_bound'])
     
     weighs = pd.DataFrame()
 
