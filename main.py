@@ -130,7 +130,7 @@ def post_strategy(strategy: StrategyModel):
     ytd["date"] = ytd["date"].apply(lambda x: str(x).split(' ')[0])
     
     response["date"] = ytd["date"].to_list()
-    response["myEtfYtd"] =  ytd["ytd"].to_list()
+    response["myEtfYtd"] =  round(ytd["ytd"], 2).to_list()
     
     # 02 myEtfDeposit
     rebalance = user_strategy.get_weights().loc[start_date:].drop(strategy.myEtfName, axis=1)
@@ -139,12 +139,12 @@ def post_strategy(strategy: StrategyModel):
     myEtfDeposit = {}
     
     for col in rebalance.columns:
-        myEtfDeposit[col]  = rebalance[col].to_list()
+        myEtfDeposit[col]  = round(rebalance[col], 2).to_list()
         
     response["myEtfDeposit"] = myEtfDeposit
     
     # 03 myEtfDrawdown
-    drawdown = user_strategy._get_series(freq=None).loc[start_date:].to_drawdown_series()
+    drawdown = round(user_strategy._get_series(freq=None).loc[start_date:].to_drawdown_series(), 2)
     response["myEtfDrawdown"] = drawdown[strategy.myEtfName].to_list()
     
     return response

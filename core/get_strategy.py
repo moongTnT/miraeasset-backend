@@ -24,14 +24,14 @@ def get_user_backtest(
     
     if user_config.rateMethod== "동일가중":
         
-        print(user_config.rateMethod)
+        # print(user_config.rateMethod)
         user_backtest = get_eql_backtest(
             name=user_config.myEtfName,
             child_prices=child_prices)
     
     elif user_config.rateMethod=="시가총액가중":
         
-        print(user_config.rateMethod)
+        # print(user_config.rateMethod)
         user_weigh = get_cap_weigh(
             child_prices=child_prices,
             pdf_df=get_pdf_df(etf_tkr=TICKER)
@@ -45,7 +45,7 @@ def get_user_backtest(
         
     elif user_config.rateMethod=="ETF방식그대로":
         
-        print(user_config.rateMethod)
+        # print(user_config.rateMethod)
         user_weigh = get_bdd_cap_weigh(
             child_prices=child_prices,
             upper_bound=upper_bound,

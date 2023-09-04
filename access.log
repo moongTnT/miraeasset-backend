@@ -1,1 +1,7 @@
 2023-09-04 15:56:48 [INFO] [httptools_impl.py] [22015] 127.0.0.1:40276 - "[1mGET /dist_methology?etf_tkr=AIQ HTTP/1.1[0m" [32m200 OK[0m
+2023-09-04 22:41:11 [INFO] [httptools_impl.py] [94652] 127.0.0.1:59434 - "[1mGET / HTTP/1.1[0m" [31m404 Not Found[0m
+2023-09-04 22:41:37 [INFO] [httptools_impl.py] [94652] 127.0.0.1:37814 - "[1mGET /strategy HTTP/1.1[0m" [31m405 Method Not Allowed[0m
+2023-09-04 22:41:42 [INFO] [httptools_impl.py] [94652] 127.0.0.1:37814 - "[1mPOST /strategy HTTP/1.1[0m" [31m422 Unprocessable Entity[0m
+2023-09-04 22:41:56 [INFO] [httptools_impl.py] [94652] 127.0.0.1:51194 - "[1mPOST /strategy HTTP/1.1[0m" [32m200 OK[0m
+2023-09-04 22:42:35 [INFO] [httptools_impl.py] [95071] 127.0.0.1:56098 - "[1mPOST /strategy HTTP/1.1[0m" [32m200 OK[0m
+2023-09-04 22:43:23 [INFO] [httptools_impl.py] [95324] 127.0.0.1:48216 - "[1mPOST /strategy HTTP/1.1[0m" [32m200 OK[0m

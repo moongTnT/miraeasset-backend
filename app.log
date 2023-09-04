@@ -6,3 +6,27 @@
 2023-09-04 15:57:17 [INFO] [on.py] - Waiting for application shutdown.
 2023-09-04 15:57:17 [INFO] [on.py] - Application shutdown complete.
 2023-09-04 15:57:17 [INFO] [server.py] - Finished server process [[36m22015[0m]
+2023-09-04 22:41:07 [INFO] [server.py] - Started server process [[36m94652[0m]
+2023-09-04 22:41:07 [INFO] [on.py] - Waiting for application startup.
+2023-09-04 22:41:07 [INFO] [on.py] - Application startup complete.
+2023-09-04 22:41:07 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-04 22:42:30 [INFO] [server.py] - Shutting down
+2023-09-04 22:42:31 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-04 22:42:31 [INFO] [on.py] - Application shutdown complete.
+2023-09-04 22:42:31 [INFO] [server.py] - Finished server process [[36m94652[0m]
+2023-09-04 22:42:33 [INFO] [server.py] - Started server process [[36m95071[0m]
+2023-09-04 22:42:33 [INFO] [on.py] - Waiting for application startup.
+2023-09-04 22:42:33 [INFO] [on.py] - Application startup complete.
+2023-09-04 22:42:33 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-04 22:43:18 [INFO] [server.py] - Shutting down
+2023-09-04 22:43:18 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-04 22:43:18 [INFO] [on.py] - Application shutdown complete.
+2023-09-04 22:43:18 [INFO] [server.py] - Finished server process [[36m95071[0m]
+2023-09-04 22:43:20 [INFO] [server.py] - Started server process [[36m95324[0m]
+2023-09-04 22:43:20 [INFO] [on.py] - Waiting for application startup.
+2023-09-04 22:43:20 [INFO] [on.py] - Application startup complete.
+2023-09-04 22:43:20 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-04 22:43:31 [INFO] [server.py] - Shutting down
+2023-09-04 22:43:31 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-04 22:43:31 [INFO] [on.py] - Application shutdown complete.
+2023-09-04 22:43:31 [INFO] [server.py] - Finished server process [[36m95324[0m]
