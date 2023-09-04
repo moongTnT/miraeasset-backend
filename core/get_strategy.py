@@ -12,13 +12,13 @@ from models import StrategyModel
 
 def get_user_backtest(
     user_config: StrategyModel,
+    upper_bound,
     start_date
     ):
     
     child_stk_tkr_list = [item["child_stk_tkr"] for item in user_config.myEtfPdf]
     child_prices = get_prices_df(tickers=child_stk_tkr_list, start_date=start_date)
     
-    upper_bound = 0.03
     
     TICKER="AIQ"
     
@@ -48,6 +48,7 @@ def get_user_backtest(
         print(user_config.rateMethod)
         user_weigh = get_bdd_cap_weigh(
             child_prices=child_prices,
+            upper_bound=upper_bound,
             pdf_df=get_pdf_df(etf_tkr=TICKER)
         )
         

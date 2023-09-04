@@ -3,16 +3,18 @@ from dateutil.relativedelta import relativedelta
 from core.get_strategy import get_user_strategy
 
 import pandas as pd
+import bt
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn
 
 from models import StrategyModel
 
-from data.fetch_data import fetch_theme_info
+from data.fetch_data import fetch_theme_info, fetch_index_info
 from data.get_data import get_pdf_df, get_prices_df
 
 from core.get_weigh import get_cap_weigh, get_bdd_cap_weigh
+from core.get_backtest import get_eql_backtest, get_mkw_backtest, get_bdd_mkw_backtest
 
 origins = ["*"]
 
@@ -42,9 +44,11 @@ def get_pdf_info(etf_tkr: str = "BKCH"):
     mkw_weigh = get_cap_weigh(child_prices=child_prices,
                               pdf_df=pdf_df)
     
+    upper_bound = fetch_index_info(etf_tkr=etf_tkr)[0]['upper_bound']
+    
     bdd_mkw_weigh = get_bdd_cap_weigh(child_prices=child_prices,
                                       pdf_df=pdf_df,
-                                      upper_bound=0.03)
+                                      upper_bound=upper_bound)
     
     weighs = pd.DataFrame()
 
@@ -64,6 +68,28 @@ def get_pdf_info(etf_tkr: str = "BKCH"):
     weighs.reset_index(drop=True, inplace=True)
     
     return weighs.T.to_dict()
+
+@app.get("/dist_methology")
+def get_dist_methology(etf_tkr: str = "BKCH"):
+    
+    pdf_df = get_pdf_df(etf_tkr=etf_tkr)
+    
+    tickers = pdf_df['child_stk_tkr'].to_list()
+    
+    child_prices = get_prices_df(tickers=tickers,
+                                 start_date=datetime.now() - relativedelta(years=1))
+    
+    eql_backtest = get_eql_backtest(name="동일가중", child_prices=child_prices)
+    
+    mkw_weigh = get_cap_weigh(child_prices=child_prices, pdf_df=pdf_df)
+    mkw_backtest = get_mkw_backtest(name="시총가중", child_prices=child_prices, weigh=mkw_weigh)
+        
+    upper_bound = fetch_index_info(etf_tkr=etf_tkr)[0]['upper_bound']
+    bdd_weigh = get_bdd_cap_weigh(child_prices, pdf_df=pdf_df, upper_bound=upper_bound)
+    bdd_backtest = get_bdd_mkw_backtest(name="ETF방식그대로", child_prices=child_prices, weigh=bdd_weigh)
+    
+    strategies = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
+    
 
 @app.post("/strategy")
 def post_strategy(strategy: StrategyModel):
