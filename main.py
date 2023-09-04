@@ -104,7 +104,7 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     
     return ret_json
 
-@app.post("click_invest")
+@app.post("/click_invest")
 def post_click_invest(user_info: ClickInvestModel):
     return "hello!"
     
