@@ -21,11 +21,4 @@ class StrategyModel(BaseModel):
     myEtfTkr: str
     
 class ClickInvestModel(BaseModel):
-    country_code: str
-    country_name: str
-    city: str
-    postal: str
-    latitude: float
-    longtitude: float
-    IPv4: str
-    state: str
+    message: str
