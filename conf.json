@@ -1,0 +1,13 @@
+{
+    "front_config": {
+        "host": "118.67.143.74",
+        "port": 3000
+    }, 
+    "db_config": {
+        "host": "db-hci0l.pub-cdb.ntruss.com",
+        "user": "moong",
+        "password": "Whansrms17!",
+        "port": 3306,
+        "db": "db"
+    }
+}

@@ -85,12 +85,22 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     mkw_backtest = get_mkw_backtest(name="시총가중", child_prices=child_prices, weigh=mkw_weigh)
         
     upper_bound = fetch_index_info(etf_tkr=etf_tkr)[0]['upper_bound']
-    bdd_weigh = get_bdd_cap_weigh(child_prices, pdf_df=pdf_df, upper_bound=upper_bound)
+    bdd_weigh = get_bdd_cap_weigh(child_prices=child_prices, pdf_df=pdf_df, upper_bound=upper_bound)
     bdd_backtest = get_bdd_mkw_backtest(name="ETF방식그대로", child_prices=child_prices, weigh=bdd_weigh)
     
     ret = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
     
-    ret_json = ret._get_series(freq=None)
+    date_list = ret._get_series(freq=None).index.to_list()
+    eql = ret._get_series(freq=None)['동일가중'].to_list()
+    mkw = ret._get_series(freq=None)['시총가중'].to_list()
+    bdd = ret._get_series(freq=None)['ETF방식그대로'].to_list()
+    
+    ret_json = {
+        "date": date_list,
+        "동일가중": eql,
+        "시총가중": mkw,
+        "ETF방식그대로": bdd
+    }
     
     return ret_json
     
