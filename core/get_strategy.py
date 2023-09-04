@@ -74,11 +74,13 @@ def get_user_backtest(
 
 def get_user_strategy(
     user_config: StrategyModel,
-    start_date
+    start_date,
+    upper_bound
     ):
     
     user_backtest = get_user_backtest(
         user_config=user_config,
+        upper_bound=upper_bound,
         start_date=start_date
     )
     

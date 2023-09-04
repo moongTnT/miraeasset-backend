@@ -115,7 +115,11 @@ def post_strategy(strategy: StrategyModel):
     
     start_date = datetime.now() - relativedelta(years=1)
     
-    user_strategy = get_user_strategy(user_config=strategy, start_date=start_date)
+    upper_bound = fetch_index_info(etf_tkr=strategy.myEtfTkr)[0]['upper_bound']
+    
+    user_strategy = get_user_strategy(user_config=strategy,
+                                      start_date=start_date,
+                                      upper_bound=upper_bound)
     
     # 01 myEtfYtd
     

@@ -18,6 +18,7 @@ class StrategyModel(BaseModel):
     rateMethod: str
     myEtfName: str
     myEtfPdf: List[Dict]
+    myEtfTkr: str
     
 class ClickInvestModel(BaseModel):
     country_code: str
