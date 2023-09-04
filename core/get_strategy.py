@@ -60,7 +60,7 @@ def get_user_backtest(
     
     else: # 수동
         
-        print(user_config.rateMethod)
+        # print(user_config.rateMethod)
         user_weigh = pd.DataFrame(user_config.myEtfPdf)
         
         user_backtest = get_user_custom_backtest(
