@@ -88,7 +88,11 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     bdd_weigh = get_bdd_cap_weigh(child_prices, pdf_df=pdf_df, upper_bound=upper_bound)
     bdd_backtest = get_bdd_mkw_backtest(name="ETF방식그대로", child_prices=child_prices, weigh=bdd_weigh)
     
-    strategies = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
+    ret = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
+    
+    ret_json = ret._get_series(freq=None)
+    
+    return ret_json
     
 
 @app.post("/strategy")
