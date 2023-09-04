@@ -1,0 +1,8 @@
+2023-09-04 15:56:33 [INFO] [server.py] - Started server process [[36m22015[0m]
+2023-09-04 15:56:33 [INFO] [on.py] - Waiting for application startup.
+2023-09-04 15:56:33 [INFO] [on.py] - Application startup complete.
+2023-09-04 15:56:33 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-04 15:57:17 [INFO] [server.py] - Shutting down
+2023-09-04 15:57:17 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-04 15:57:17 [INFO] [on.py] - Application shutdown complete.
+2023-09-04 15:57:17 [INFO] [server.py] - Finished server process [[36m22015[0m]

@@ -18,3 +18,13 @@ class StrategyModel(BaseModel):
     rateMethod: str
     myEtfName: str
     myEtfPdf: List[Dict]
+    
+class ClickInvestModel(BaseModel):
+    country_code: str
+    country_name: str
+    city: str
+    postal: str
+    latitude: float
+    longtitude: float
+    IPv4: str
+    state: str

@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn
 
-from models import StrategyModel
+from models import StrategyModel, ClickInvestModel
 
 from data.fetch_data import fetch_theme_info, fetch_index_info
 from data.get_data import get_pdf_df, get_prices_df
@@ -103,6 +103,10 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     }
     
     return ret_json
+
+@app.post("click_invest")
+def post_click_invest(user_info: ClickInvestModel):
+    return "hello!"
     
 
 @app.post("/strategy")
@@ -141,5 +145,53 @@ def post_strategy(strategy: StrategyModel):
     
     return response
 
+from uvicorn.config import LOGGING_CONFIG, Config
+import uvicorn
+import logging
+
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    DATE_FMT = "%Y-%m-%d %H:%M:%S"
+
+    # Modify uvicorn's access logging format
+    LOGGING_CONFIG["formatters"]["access"]["fmt"] = '%(asctime)s [%(levelname)s] [%(filename)s] [%(process)d] %(client_addr)s - "%(request_line)s" %(status_code)s'
+    LOGGING_CONFIG["formatters"]["access"]["datefmt"] = DATE_FMT
+    
+    # Modify uvicorn's default logging format
+    LOGGING_CONFIG["formatters"]["default"]["fmt"] = "%(asctime)s [%(levelname)s] [%(filename)s] - %(message)s"
+    LOGGING_CONFIG["formatters"]["default"]["datefmt"] = DATE_FMT
+
+    # Create a new file handler for access logs and add it to uvicorn's logger
+    file_handler_access = logging.FileHandler("access.log")
+    file_handler_access.setFormatter(logging.Formatter(
+        LOGGING_CONFIG["formatters"]["access"]["fmt"],
+        DATE_FMT
+    ))
+
+    # Create a new file handler for default logs and add it to uvicorn's logger
+    file_handler_default = logging.FileHandler("app.log")
+    file_handler_default.setFormatter(logging.Formatter(
+        LOGGING_CONFIG["formatters"]["default"]["fmt"],
+        DATE_FMT
+    ))
+
+    # Add handlers to the LOGGING_CONFIG
+    LOGGING_CONFIG["handlers"]["file_handler_access"] = {
+        "class": "logging.FileHandler",
+        "filename": "access.log",
+        "formatter": "access"
+    }
+    LOGGING_CONFIG["handlers"]["file_handler_default"] = {
+        "class": "logging.FileHandler",
+        "filename": "app.log",
+        "formatter": "default"
+    }
+
+    # Associate the handlers with the loggers
+    LOGGING_CONFIG["loggers"]["uvicorn.access"]["handlers"].append("file_handler_access")
+    LOGGING_CONFIG["loggers"]["uvicorn"]["handlers"].append("file_handler_default")
+
+    print("logger setup")
+
+    config = Config("main:app", host="0.0.0.0", log_config=LOGGING_CONFIG)
+    server = uvicorn.Server(config=config)
+    server.run()
