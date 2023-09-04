@@ -139,12 +139,12 @@ def post_strategy(strategy: StrategyModel):
     myEtfDeposit = {}
     
     for col in rebalance.columns:
-        myEtfDeposit[col]  = round(rebalance[col], 2).to_list()
+        myEtfDeposit[col]  = round(rebalance[col], 3).to_list()
         
     response["myEtfDeposit"] = myEtfDeposit
     
     # 03 myEtfDrawdown
-    drawdown = round(user_strategy._get_series(freq=None).loc[start_date:].to_drawdown_series(), 2)
+    drawdown = round(user_strategy._get_series(freq=None).loc[start_date:].to_drawdown_series(), 3)
     response["myEtfDrawdown"] = drawdown[strategy.myEtfName].to_list()
     
     return response
