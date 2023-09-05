@@ -30,7 +30,12 @@ app.add_middleware(
 
 @app.get("/theme_info")
 def get_theme_info():
-    return fetch_theme_info()
+    theme_info = fetch_theme_info()
+    
+    
+    theme_info = sorted(theme_info, key=lambda x: x["ytd"], reverse=True)
+    
+    return theme_info
 
 @app.get("/pdf_info")
 def get_pdf_info(etf_tkr: str = "BKCH"):

@@ -27,3 +27,8 @@
 2023-09-05 12:24:18 [INFO] [httptools_impl.py] [246504] 127.0.0.1:54688 - "[1mGET /dist_methology?etf_tkr=AIQ HTTP/1.1[0m" [91m500 Internal Server Error[0m
 2023-09-05 12:25:03 [INFO] [httptools_impl.py] [246737] 127.0.0.1:41900 - "[1mGET /dist_methology?etf_tkr=AIQ HTTP/1.1[0m" [32m200 OK[0m
 2023-09-05 12:25:37 [INFO] [httptools_impl.py] [246933] 127.0.0.1:44322 - "[1mGET /dist_methology?etf_tkr=AIQ HTTP/1.1[0m" [32m200 OK[0m
+2023-09-05 12:29:27 [INFO] [httptools_impl.py] [247802] 127.0.0.1:55168 - "[1mGET /theme_info HTTP/1.1[0m" [32m200 OK[0m
+2023-09-05 12:30:14 [INFO] [httptools_impl.py] [248041] 127.0.0.1:51478 - "[1mGET /theme_info HTTP/1.1[0m" [32m200 OK[0m
+2023-09-05 12:31:17 [INFO] [httptools_impl.py] [248323] 127.0.0.1:57720 - "[1mGET /theme_info HTTP/1.1[0m" [91m500 Internal Server Error[0m
+2023-09-05 12:31:38 [INFO] [httptools_impl.py] [248473] 127.0.0.1:40680 - "[1mGET /theme_info HTTP/1.1[0m" [91m500 Internal Server Error[0m
+2023-09-05 12:34:32 [INFO] [httptools_impl.py] [248473] 127.0.0.1:48724 - "[1mGET /theme_info HTTP/1.1[0m" [32m200 OK[0m

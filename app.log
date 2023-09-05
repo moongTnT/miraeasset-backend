@@ -622,3 +622,125 @@ AttributeError: 'Result' object has no attribute 'round'
 2023-09-05 12:25:56 [INFO] [on.py] - Waiting for application shutdown.
 2023-09-05 12:25:56 [INFO] [on.py] - Application shutdown complete.
 2023-09-05 12:25:56 [INFO] [server.py] - Finished server process [[36m246933[0m]
+2023-09-05 12:29:25 [INFO] [server.py] - Started server process [[36m247802[0m]
+2023-09-05 12:29:25 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:29:25 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:29:25 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:30:10 [INFO] [server.py] - Shutting down
+2023-09-05 12:30:11 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:30:11 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:30:11 [INFO] [server.py] - Finished server process [[36m247802[0m]
+2023-09-05 12:30:13 [INFO] [server.py] - Started server process [[36m248041[0m]
+2023-09-05 12:30:13 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:30:13 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:30:13 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:31:14 [INFO] [server.py] - Shutting down
+2023-09-05 12:31:14 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:31:14 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:31:14 [INFO] [server.py] - Finished server process [[36m248041[0m]
+2023-09-05 12:31:16 [INFO] [server.py] - Started server process [[36m248323[0m]
+2023-09-05 12:31:16 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:31:16 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:31:16 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:31:17 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 37, in get_theme_info
+    theme_info = sorted(theme_info, lambda x: x["ytd"], reverse=True)
+TypeError: sorted expected 1 argument, got 2
+2023-09-05 12:31:34 [INFO] [server.py] - Shutting down
+2023-09-05 12:31:34 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:31:34 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:31:34 [INFO] [server.py] - Finished server process [[36m248323[0m]
+2023-09-05 12:31:36 [INFO] [server.py] - Started server process [[36m248473[0m]
+2023-09-05 12:31:36 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:31:36 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:31:36 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:31:38 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 37, in get_theme_info
+    theme_info = sorted(theme_info, key=lambda x: x["ytd"], reverse=True)
+TypeError: '<' not supported between instances of 'NoneType' and 'float'
+2023-09-05 12:34:43 [INFO] [server.py] - Shutting down
+2023-09-05 12:34:43 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:34:43 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:34:43 [INFO] [server.py] - Finished server process [[36m248473[0m]
