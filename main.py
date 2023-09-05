@@ -1,6 +1,5 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from core.get_strategy import get_user_strategy
 
 import pandas as pd
 import bt
@@ -11,10 +10,10 @@ import uvicorn
 from models import StrategyModel, ClickInvestModel
 
 from data.fetch_data import fetch_theme_info, fetch_index_info
-from data.get_data import get_pdf_df, get_prices_df
+from data.get_data import get_pdf_df, get_prices_df, get_base_price_df
 
 from core.get_weigh import get_cap_weigh, get_bdd_cap_weigh
-from core.get_backtest import get_eql_backtest, get_mkw_backtest, get_bdd_mkw_backtest
+from core.get_backtest import get_eql_backtest, get_mkw_backtest, get_bdd_mkw_backtest, get_base_backtest
 from core.get_strategy import *
 
 origins = ["*"]
@@ -35,12 +34,13 @@ def get_theme_info():
 
 @app.get("/pdf_info")
 def get_pdf_info(etf_tkr: str = "BKCH"):
+    
     pdf_df = get_pdf_df(etf_tkr=etf_tkr)
     
     tickers = pdf_df['child_stk_tkr'].to_list()
     
-    child_prices = get_prices_df(tickers=tickers,
-                                 start_date=datetime.now() - relativedelta(years=1))
+    child_prices = get_prices_df(tickers = tickers,
+                                 start_date = datetime.now() - relativedelta(years=1))
     
     mkw_weigh = get_cap_weigh(child_prices=child_prices,
                               pdf_df=pdf_df)
@@ -54,10 +54,14 @@ def get_pdf_info(etf_tkr: str = "BKCH"):
     weighs = pd.DataFrame()
 
     weighs['mkw_weigh'] = mkw_weigh.iloc[-1].round(4)
+    
     weighs['umkw_weigh'] = bdd_mkw_weigh.iloc[-1].round(4)
+    
     weighs['eql_weigh'] = 1/weighs.shape[0]
     weighs['eql_weigh'] = weighs['eql_weigh'].round(4)
+    
     weighs = weighs.reset_index().rename(columns={'index': 'child_stk_tkr'})
+    
     weighs['child_stk_tkr'] = weighs['child_stk_tkr'].str.upper()
     
     tkr_to_name = pdf_df[['child_stk_tkr', 'child_stk_name']]
@@ -91,10 +95,10 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     
     ret = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
     
-    date_list = ret._get_series(freq=None).index.to_list()
-    eql = ret._get_series(freq=None)['동일가중'].to_list()
-    mkw = ret._get_series(freq=None)['시총가중'].to_list()
-    bdd = ret._get_series(freq=None)['ETF방식그대로'].to_list()
+    date_list = ret._get_series(freq=None).loc[mkw_weigh.index[0]:].index.to_list()
+    eql = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['동일가중'].rebase().to_list()
+    mkw = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['시총가중'].to_list()
+    bdd = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['ETF방식그대로'].to_list()
     
     ret_json = {
         "date": date_list,
@@ -117,7 +121,7 @@ def post_strategy(strategy: StrategyModel):
     start_date = datetime.now() - relativedelta(years=1)
     
     upper_bound = fetch_index_info(etf_tkr=strategy.myEtfTkr)[0]['upper_bound']
-
+    
     # 00 전략 구하기
     child_stk_tkr_list = [item["child_stk_tkr"] for item in strategy.myEtfPdf]
     child_prices = get_prices_df(tickers=child_stk_tkr_list, start_date=start_date)
@@ -132,15 +136,14 @@ def post_strategy(strategy: StrategyModel):
     else:
         ytd_series, rebalance_df, drawdown_series  = get_user_info(user_config=strategy, child_prices=child_prices)
     
-    ytd = ytd_series[strategy.myEtfName].reset_index().rename(columns={"index": "date", strategy.myEtfName: "ytd"})
-    
+    ytd = ytd_series.reset_index().rename(columns={"index": "date", strategy.myEtfName: "ytd", strategy.myEtfTkr: "base_ytd"})
     ytd["date"] = ytd["date"].apply(lambda x: str(x).split(' ')[0])
     
     response["date"] = ytd["date"].to_list()
     response["myEtfYtd"] =  round(ytd["ytd"], 2).to_list()
-    
+    response["baseEtfYtd"] = round(ytd["base_ytd"], 2).to_list()
+        
     # 02 myEtfDeposit
-    
     myEtfDeposit = {}
     
     for col in rebalance_df.columns:

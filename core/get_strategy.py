@@ -1,24 +1,33 @@
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
 import pandas as pd
 import bt
 
 from core.get_weigh import get_bdd_cap_weigh, get_cap_weigh
 
-from data.get_data import get_pdf_df, get_prices_df
+from data.get_data import get_pdf_df, get_prices_df, get_base_price_df
 
-from core.get_backtest import get_eql_backtest, get_bdd_mkw_backtest, get_mkw_backtest, get_user_custom_backtest
+from core.get_backtest import get_eql_backtest, get_bdd_mkw_backtest, get_mkw_backtest, get_user_custom_backtest, get_base_backtest
 
 from models import StrategyModel
 
 def get_eql_info(user_config: StrategyModel, child_prices):
     
+    start_date = datetime.now() - relativedelta(years=1)
+    
+    etf_price = get_base_price_df(etf_tkr=user_config.myEtfTkr, start_date=start_date).dropna()
+    
+    base_backtest = get_base_backtest(name=user_config.myEtfTkr, etf_price=etf_price)
+    
     user_backtest = get_eql_backtest(
         name=user_config.myEtfName,
         child_prices=child_prices)
     
-    ret = bt.run(user_backtest)
+    ret = bt.run(user_backtest, base_backtest)
     
     ytd_series = ret._get_series(freq=None).rebase()
-    
+        
     rebalance_df = ret.get_security_weights()
     
     drawdown_series = ret._get_series(freq=None).to_drawdown_series()

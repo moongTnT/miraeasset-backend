@@ -460,3 +460,43 @@ TypeError: cannot do slice indexing on DatetimeIndex with these indexers [0] of 
 2023-09-05 09:50:45 [INFO] [on.py] - Waiting for application shutdown.
 2023-09-05 09:50:45 [INFO] [on.py] - Application shutdown complete.
 2023-09-05 09:50:45 [INFO] [server.py] - Finished server process [[36m215360[0m]
+2023-09-05 12:08:47 [INFO] [server.py] - Started server process [[36m242701[0m]
+2023-09-05 12:08:47 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:08:47 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:08:47 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:09:19 [INFO] [server.py] - Shutting down
+2023-09-05 12:09:19 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:09:19 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:09:19 [INFO] [server.py] - Finished server process [[36m242701[0m]
+2023-09-05 12:09:21 [INFO] [server.py] - Started server process [[36m242906[0m]
+2023-09-05 12:09:21 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:09:21 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:09:21 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:14:39 [INFO] [server.py] - Shutting down
+2023-09-05 12:14:39 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:14:39 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:14:39 [INFO] [server.py] - Finished server process [[36m242906[0m]
+2023-09-05 12:14:41 [INFO] [server.py] - Started server process [[36m244101[0m]
+2023-09-05 12:14:41 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:14:41 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:14:41 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:19:18 [INFO] [server.py] - Shutting down
+2023-09-05 12:19:18 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:19:18 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:19:18 [INFO] [server.py] - Finished server process [[36m244101[0m]
+2023-09-05 12:19:20 [INFO] [server.py] - Started server process [[36m245184[0m]
+2023-09-05 12:19:20 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:19:20 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:19:20 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:20:45 [INFO] [server.py] - Shutting down
+2023-09-05 12:20:45 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:20:45 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:20:45 [INFO] [server.py] - Finished server process [[36m245184[0m]
+2023-09-05 12:20:47 [INFO] [server.py] - Started server process [[36m245556[0m]
+2023-09-05 12:20:47 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:20:47 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:20:47 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:21:04 [INFO] [server.py] - Shutting down
+2023-09-05 12:21:04 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:21:04 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:21:04 [INFO] [server.py] - Finished server process [[36m245556[0m]

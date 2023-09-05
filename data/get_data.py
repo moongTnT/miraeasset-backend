@@ -39,3 +39,22 @@ def get_prices_df(*args, **kwargs):
     child_prices = pd.concat(tmp_price_df_list, axis=1).dropna()
     
     return child_prices
+
+def get_base_price_df(*args, **kwargs):
+    """
+    # Kwargs
+    etf_tkr: str
+        etf 티커
+    start_date: str
+        불러올 가격의 시작날짜
+    """
+    etf_tkr = kwargs.pop("etf_tkr")
+    start_date = kwargs.pop("start_date")
+    
+    child_prices_from_db = fetch_stk_prices(tickers=[etf_tkr], start_date=str(start_date))
+    child_prices_df = pd.DataFrame(child_prices_from_db)
+    
+    etf_price = child_prices_df[['date', 'close']].set_index(keys="date", drop=True).rename(columns={"close": etf_tkr})
+    etf_price.index = pd.DatetimeIndex(etf_price.index)
+    
+    return etf_price
