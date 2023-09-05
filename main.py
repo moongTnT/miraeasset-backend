@@ -96,9 +96,9 @@ def get_dist_methology(etf_tkr: str = "BKCH"):
     ret = bt.run(eql_backtest, mkw_backtest, bdd_backtest)
     
     date_list = ret._get_series(freq=None).loc[mkw_weigh.index[0]:].index.to_list()
-    eql = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['동일가중'].rebase().to_list()
-    mkw = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['시총가중'].to_list()
-    bdd = ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['ETF방식그대로'].to_list()
+    eql = round(ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['동일가중'].rebase(), 2).to_list()
+    mkw = round(ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['시총가중'], 2).to_list()
+    bdd = round(ret._get_series(freq=None).loc[mkw_weigh.index[0]:]['ETF방식그대로'], 2).to_list()
     
     ret_json = {
         "date": date_list,
