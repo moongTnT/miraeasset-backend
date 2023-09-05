@@ -30,3 +30,433 @@
 2023-09-04 22:43:31 [INFO] [on.py] - Waiting for application shutdown.
 2023-09-04 22:43:31 [INFO] [on.py] - Application shutdown complete.
 2023-09-04 22:43:31 [INFO] [server.py] - Finished server process [[36m95324[0m]
+2023-09-05 09:25:25 [INFO] [server.py] - Started server process [[36m209644[0m]
+2023-09-05 09:25:25 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:25:25 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:25:25 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:31:47 [INFO] [server.py] - Shutting down
+2023-09-05 09:31:47 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:31:47 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:31:47 [INFO] [server.py] - Finished server process [[36m209644[0m]
+2023-09-05 09:31:49 [INFO] [server.py] - Started server process [[36m211076[0m]
+2023-09-05 09:31:49 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:31:49 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:31:49 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:31:52 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 132, in post_strategy
+    if user_strategy.rateMethod == "동일가중":
+AttributeError: 'Result' object has no attribute 'rateMethod'
+2023-09-05 09:32:33 [INFO] [server.py] - Shutting down
+2023-09-05 09:32:33 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:32:33 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:32:33 [INFO] [server.py] - Finished server process [[36m211076[0m]
+2023-09-05 09:32:35 [INFO] [server.py] - Started server process [[36m211322[0m]
+2023-09-05 09:32:35 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:32:35 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:32:35 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:32:38 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 137, in post_strategy
+    ytd_series = get_cap_ytd(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr, upper_bound=upper_bound)
+TypeError: get_cap_ytd() got an unexpected keyword argument 'upper_bound'
+2023-09-05 09:32:54 [INFO] [server.py] - Shutting down
+2023-09-05 09:32:54 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:32:54 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:32:54 [INFO] [server.py] - Finished server process [[36m211322[0m]
+2023-09-05 09:32:56 [INFO] [server.py] - Started server process [[36m211483[0m]
+2023-09-05 09:32:56 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:32:56 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:32:56 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:32:59 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 137, in post_strategy
+    ytd_series = get_bdd_ytd(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr, upper_bound=upper_bound)
+  File "/home/moongtnt/asdf/miraeasset-backend/core/get_strategy.py", line 57, in get_bdd_ytd
+    return ret._get_series(freq=None).iloc[user_weigh.index[0]:].rebase()
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1633, in _getitem_axis
+    return self._get_slice_axis(key, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1668, in _get_slice_axis
+    labels._validate_positional_slice(slice_obj)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4054, in _validate_positional_slice
+    self._validate_indexer("positional", key.start, "iloc")
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6373, in _validate_indexer
+    self._raise_invalid_indexer(form, key)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4151, in _raise_invalid_indexer
+    raise TypeError(msg)
+TypeError: cannot do positional indexing on DatetimeIndex with these indexers [2022-09-30 00:00:00] of type Timestamp
+2023-09-05 09:33:55 [INFO] [server.py] - Shutting down
+2023-09-05 09:33:55 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:33:55 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:33:55 [INFO] [server.py] - Finished server process [[36m211483[0m]
+2023-09-05 09:33:57 [INFO] [server.py] - Started server process [[36m211762[0m]
+2023-09-05 09:33:57 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:33:57 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:33:57 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:35:34 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 135, in post_strategy
+    ytd_series = get_cap_ytd(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr)
+  File "/home/moongtnt/asdf/miraeasset-backend/core/get_strategy.py", line 38, in get_cap_ytd
+    ret = bt.run(user_backtest)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1633, in _getitem_axis
+    return self._get_slice_axis(key, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1668, in _get_slice_axis
+    labels._validate_positional_slice(slice_obj)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4054, in _validate_positional_slice
+    self._validate_indexer("positional", key.start, "iloc")
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6373, in _validate_indexer
+    self._raise_invalid_indexer(form, key)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4151, in _raise_invalid_indexer
+    raise TypeError(msg)
+TypeError: cannot do positional indexing on DatetimeIndex with these indexers [2022-09-30 00:00:00] of type Timestamp
+2023-09-05 09:40:15 [INFO] [server.py] - Shutting down
+2023-09-05 09:40:15 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:40:15 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:40:15 [INFO] [server.py] - Finished server process [[36m211762[0m]
+2023-09-05 09:40:17 [INFO] [server.py] - Started server process [[36m213150[0m]
+2023-09-05 09:40:17 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:40:17 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:40:17 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:43:07 [INFO] [server.py] - Shutting down
+2023-09-05 09:43:08 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:43:08 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:43:08 [INFO] [server.py] - Finished server process [[36m213150[0m]
+2023-09-05 09:43:09 [INFO] [server.py] - Started server process [[36m213806[0m]
+2023-09-05 09:43:09 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:43:09 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:43:09 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:43:14 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 139, in post_strategy
+    ytd_series, rebalance_df  = get_user_info(user_config=strategy, child_prices=child_prices)
+  File "/home/moongtnt/asdf/miraeasset-backend/core/get_strategy.py", line 84, in get_user_info
+    ytd_series = ret._get_series(freq=None).loc[user_weigh.index[0]:].rebase()
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1323, in _getitem_axis
+    return self._get_slice_axis(key, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1355, in _get_slice_axis
+    indexer = labels.slice_indexer(slice_obj.start, slice_obj.stop, slice_obj.step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimes.py", line 636, in slice_indexer
+    return Index.slice_indexer(self, start, end, step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6341, in slice_indexer
+    start_slice, end_slice = self.slice_locs(start, end, step=step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6534, in slice_locs
+    start_slice = self.get_slice_bound(start, "left")
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6449, in get_slice_bound
+    label = self._maybe_cast_slice_bound(label, side)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimes.py", line 596, in _maybe_cast_slice_bound
+    label = super()._maybe_cast_slice_bound(label, side)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimelike.py", line 352, in _maybe_cast_slice_bound
+    self._raise_invalid_indexer("slice", label)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4151, in _raise_invalid_indexer
+    raise TypeError(msg)
+TypeError: cannot do slice indexing on DatetimeIndex with these indexers [0] of type int
+2023-09-05 09:43:34 [INFO] [server.py] - Shutting down
+2023-09-05 09:43:34 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:43:34 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:43:34 [INFO] [server.py] - Finished server process [[36m213806[0m]
+2023-09-05 09:43:36 [INFO] [server.py] - Started server process [[36m213982[0m]
+2023-09-05 09:43:36 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:43:36 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:43:36 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:43:38 [ERROR] [httptools_impl.py] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 435, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/fastapi/routing.py", line 165, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/home/moongtnt/asdf/miraeasset-backend/main.py", line 139, in post_strategy
+    ytd_series, rebalance_df  = get_user_info(user_config=strategy, child_prices=child_prices)
+  File "/home/moongtnt/asdf/miraeasset-backend/core/get_strategy.py", line 84, in get_user_info
+    ytd_series = ret._get_series(freq=None).rebase()
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1323, in _getitem_axis
+    return self._get_slice_axis(key, axis=axis)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1355, in _get_slice_axis
+    indexer = labels.slice_indexer(slice_obj.start, slice_obj.stop, slice_obj.step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimes.py", line 636, in slice_indexer
+    return Index.slice_indexer(self, start, end, step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6341, in slice_indexer
+    start_slice, end_slice = self.slice_locs(start, end, step=step)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6534, in slice_locs
+    start_slice = self.get_slice_bound(start, "left")
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6449, in get_slice_bound
+    label = self._maybe_cast_slice_bound(label, side)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimes.py", line 596, in _maybe_cast_slice_bound
+    label = super()._maybe_cast_slice_bound(label, side)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/datetimelike.py", line 352, in _maybe_cast_slice_bound
+    self._raise_invalid_indexer("slice", label)
+  File "/home/moongtnt/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 4151, in _raise_invalid_indexer
+    raise TypeError(msg)
+TypeError: cannot do slice indexing on DatetimeIndex with these indexers [0] of type int
+2023-09-05 09:44:16 [INFO] [server.py] - Shutting down
+2023-09-05 09:44:16 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:44:16 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:44:16 [INFO] [server.py] - Finished server process [[36m213982[0m]
+2023-09-05 09:44:18 [INFO] [server.py] - Started server process [[36m214183[0m]
+2023-09-05 09:44:18 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:44:18 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:44:18 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:45:12 [INFO] [server.py] - Shutting down
+2023-09-05 09:45:12 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:45:12 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:45:12 [INFO] [server.py] - Finished server process [[36m214183[0m]
+2023-09-05 09:45:14 [INFO] [server.py] - Started server process [[36m214417[0m]
+2023-09-05 09:45:14 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:45:14 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:45:14 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:49:46 [INFO] [server.py] - Shutting down
+2023-09-05 09:49:46 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:49:46 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:49:46 [INFO] [server.py] - Finished server process [[36m214417[0m]
+2023-09-05 09:49:48 [INFO] [server.py] - Started server process [[36m215360[0m]
+2023-09-05 09:49:48 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 09:49:48 [INFO] [on.py] - Application startup complete.
+2023-09-05 09:49:48 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 09:50:44 [INFO] [server.py] - Shutting down
+2023-09-05 09:50:45 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 09:50:45 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 09:50:45 [INFO] [server.py] - Finished server process [[36m215360[0m]

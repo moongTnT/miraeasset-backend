@@ -15,6 +15,7 @@ from data.get_data import get_pdf_df, get_prices_df
 
 from core.get_weigh import get_cap_weigh, get_bdd_cap_weigh
 from core.get_backtest import get_eql_backtest, get_mkw_backtest, get_bdd_mkw_backtest
+from core.get_strategy import *
 
 origins = ["*"]
 
@@ -116,14 +117,20 @@ def post_strategy(strategy: StrategyModel):
     start_date = datetime.now() - relativedelta(years=1)
     
     upper_bound = fetch_index_info(etf_tkr=strategy.myEtfTkr)[0]['upper_bound']
-    
-    user_strategy = get_user_strategy(user_config=strategy,
-                                      start_date=start_date,
-                                      upper_bound=upper_bound)
+
+    # 00 전략 구하기
+    child_stk_tkr_list = [item["child_stk_tkr"] for item in strategy.myEtfPdf]
+    child_prices = get_prices_df(tickers=child_stk_tkr_list, start_date=start_date)
     
     # 01 myEtfYtd
-    
-    ytd_series = user_strategy._get_series(freq=None).loc[start_date:].rebase()
+    if strategy.rateMethod == "동일가중":
+        ytd_series, rebalance_df, drawdown_series = get_eql_info(user_config=strategy, child_prices=child_prices)
+    elif strategy.rateMethod == "시총가중":
+        ytd_series, rebalance_df, drawdown_series  = get_cap_info(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr)
+    elif strategy.rateMethod == "ETF방식그대로":
+        ytd_series, rebalance_df, drawdown_series  = get_bdd_info(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr, upper_bound=upper_bound)
+    else:
+        ytd_series, rebalance_df, drawdown_series  = get_user_info(user_config=strategy, child_prices=child_prices)
     
     ytd = ytd_series[strategy.myEtfName].reset_index().rename(columns={"index": "date", strategy.myEtfName: "ytd"})
     
@@ -133,18 +140,16 @@ def post_strategy(strategy: StrategyModel):
     response["myEtfYtd"] =  round(ytd["ytd"], 2).to_list()
     
     # 02 myEtfDeposit
-    rebalance = user_strategy.get_weights().loc[start_date:].drop(strategy.myEtfName, axis=1)
-    rebalance.columns = rebalance.columns.str.replace(strategy.myEtfName+">", "")
     
     myEtfDeposit = {}
     
-    for col in rebalance.columns:
-        myEtfDeposit[col]  = round(rebalance[col], 3).to_list()
+    for col in rebalance_df.columns:
+        myEtfDeposit[col]  = round(rebalance_df[col], 3).to_list()
         
     response["myEtfDeposit"] = myEtfDeposit
     
     # 03 myEtfDrawdown
-    drawdown = round(user_strategy._get_series(freq=None).loc[start_date:].to_drawdown_series(), 3)
+    drawdown = round(drawdown_series, 3)
     response["myEtfDrawdown"] = drawdown[strategy.myEtfName].to_list()
     
     return response
