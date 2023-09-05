@@ -125,7 +125,7 @@ def post_strategy(strategy: StrategyModel):
     # 01 myEtfYtd
     if strategy.rateMethod == "동일가중":
         ytd_series, rebalance_df, drawdown_series = get_eql_info(user_config=strategy, child_prices=child_prices)
-    elif strategy.rateMethod == "시총가중":
+    elif strategy.rateMethod == "시가총액가중":
         ytd_series, rebalance_df, drawdown_series  = get_cap_info(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr)
     elif strategy.rateMethod == "ETF방식그대로":
         ytd_series, rebalance_df, drawdown_series  = get_bdd_info(user_config=strategy, child_prices=child_prices, etf_tkr=strategy.myEtfTkr, upper_bound=upper_bound)
