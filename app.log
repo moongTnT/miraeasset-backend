@@ -744,3 +744,11 @@ TypeError: '<' not supported between instances of 'NoneType' and 'float'
 2023-09-05 12:34:43 [INFO] [on.py] - Waiting for application shutdown.
 2023-09-05 12:34:43 [INFO] [on.py] - Application shutdown complete.
 2023-09-05 12:34:43 [INFO] [server.py] - Finished server process [[36m248473[0m]
+2023-09-05 12:39:21 [INFO] [server.py] - Started server process [[36m250168[0m]
+2023-09-05 12:39:21 [INFO] [on.py] - Waiting for application startup.
+2023-09-05 12:39:21 [INFO] [on.py] - Application startup complete.
+2023-09-05 12:39:21 [INFO] [server.py] - Uvicorn running on [1mhttp://0.0.0.0:8000[0m (Press CTRL+C to quit)
+2023-09-05 12:39:51 [INFO] [server.py] - Shutting down
+2023-09-05 12:39:51 [INFO] [on.py] - Waiting for application shutdown.
+2023-09-05 12:39:51 [INFO] [on.py] - Application shutdown complete.
+2023-09-05 12:39:51 [INFO] [server.py] - Finished server process [[36m250168[0m]

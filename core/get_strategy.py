@@ -36,6 +36,12 @@ def get_eql_info(user_config: StrategyModel, child_prices):
 
 
 def get_cap_info(user_config: StrategyModel, child_prices, etf_tkr):
+    
+    start_date = datetime.now() - relativedelta(years=1)
+    
+    etf_price = get_base_price_df(etf_tkr=user_config.myEtfTkr, start_date=start_date).dropna()
+    
+    base_backtest = get_base_backtest(name=user_config.myEtfTkr, etf_price=etf_price)
         
     user_weigh = get_cap_weigh(
         child_prices=child_prices,
@@ -48,7 +54,7 @@ def get_cap_info(user_config: StrategyModel, child_prices, etf_tkr):
         weigh=user_weigh
     )
     
-    ret = bt.run(user_backtest)
+    ret = bt.run(user_backtest, base_backtest)
     
     ytd_series = ret._get_series(freq=None).loc[user_weigh.index[0]:].rebase()
     
@@ -60,6 +66,12 @@ def get_cap_info(user_config: StrategyModel, child_prices, etf_tkr):
 
 
 def get_bdd_info(user_config: StrategyModel, child_prices, etf_tkr, upper_bound):
+    
+    start_date = datetime.now() - relativedelta(years=1)
+    
+    etf_price = get_base_price_df(etf_tkr=user_config.myEtfTkr, start_date=start_date).dropna()
+    
+    base_backtest = get_base_backtest(name=user_config.myEtfTkr, etf_price=etf_price)
     
     user_weigh = get_bdd_cap_weigh(
         child_prices=child_prices,
@@ -73,7 +85,7 @@ def get_bdd_info(user_config: StrategyModel, child_prices, etf_tkr, upper_bound)
         weigh=user_weigh
     )
     
-    ret = bt.run(user_backtest)
+    ret = bt.run(user_backtest, base_backtest)
     
     ytd_series = ret._get_series(freq=None).loc[user_weigh.index[0]:].rebase()
     
